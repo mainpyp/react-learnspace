@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First React File</title>
+</head>
+<body>
+    <div id="root"></div> <!-- React will render the app here -->
+
+    <!-- With this we include the pure react. Usually we do this with a build tool. -->
+    <script 
+        src="https://unpkg.com/react@18/umd/react.development.js"
+        crossorigin
+    ></script>
+    <script 
+        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+        crossorigin
+    ></script>
+
+    <script>
+        // This is a component. basically a function but in upper-case
+        function App() {
+            // const time = new Date().toLocaleTimeString()
+            // we want to update the state of the time every second -> useState(defaultValue)
+            const [time, setTime] = React.useState(new Date().toLocaleTimeString())
+            // useEffecgt
+            React.useEffect(function() {
+                setInterval(function() {
+                    setTime(new Date().toLocaleTimeString())
+                }, 1000)
+            })
+            // we cannot create JSX yet because we dont have the tooling for that.
+            // We need to use the createElement Function from the first imported script
+            // This is not rendering the h1 just giving the functionality to create it!
+            return React.createElement("header", null, `Hello React ${time}`)  // type, props (arguments), children
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("root"))
+        root.render(React.createElement(App))
+    </script>
+</body>
+</html>
