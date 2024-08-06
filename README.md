@@ -16,3 +16,6 @@ README.md
 |-- projects
 |-- teachers-repository
 ```
+
+## `Next.js` Steps:
+* [FireShip IO Next.js Tutorial](https://fireship.io/courses/react-next-firebase/)
