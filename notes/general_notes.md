@@ -1,6 +1,7 @@
 # Sources#
 * [Documentation](https://react.dev/reference/react)
 * [Learn React](https://react.dev/learn)
+* [Learn React - Hatches](https://react.dev/learn/escape-hatches)  
 * [Components](https://reactnative.dev/docs/components-and-apis)
 
 
