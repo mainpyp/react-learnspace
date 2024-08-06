@@ -1,4 +1,4 @@
-# Chapter 1 - Intro
+# Chapter 1-3 - Intro + A First Look at React
 ## Why do Front-End Frameworks Exists?
 * Web-Apps used to be rendered on the server side and nowadays they turn into Single-Page-Apps (SPA) that are rendered on the Client (User PC / Browser). 
 * Web Apps are build from components that are updated based on the **data = state**
@@ -33,6 +33,17 @@ _Workspace: 01-pure-react_
 * Template literal = python f-string -> `Please print my ${variable}`
 * `useState(defaultValue)` creates a variable and a setVariable function
 * `useEffect(function())` updates the variable by calling setVariable
-
-
-
+## Setting Up a New React Project: The Options
+* create-react-app: Old so dont use for real projects but great for tutorials and demos. ESLint Prettier and Jest already installed
+* Vite: Modern Build tool. Manually install ESLinte etc. that can be quite a pain. Bit its extremely fast!
+* Next.js or Remix: React Framework includes Routing, Data Fetching etc.
+## Setting Up a Project With Create-React-App
+* `npx create-react-project app-name` creates a new REACT Project
+    * node_modules/
+    * public/ (asset folder + index.html file with `div id="root"`)
+    * src/ (development folder with a bunch of redundant files)
+    * .gitignore
+    * package.json + lockfile
+    * README
+* `npm run start` starts the webserver
+    * this is defined in `package.json` under scripts
