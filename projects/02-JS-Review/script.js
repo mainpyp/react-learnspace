@@ -181,3 +181,67 @@ bookSize;
 const infoString = `The book ${title} is a ${bookSize}`;
 infoString;
 
+function multiply(a, b) {
+    return a * b;
+}
+const multiplied = multiply(2, 3);
+multiplied;
+
+// Arrow functions
+const multiplyArrow = (a, b) => a * b;
+const multipliedArrow = multiplyArrow(2, 3);
+multipliedArrow; 
+
+// Short Circuit Evaluation
+console.log(true && "Hello");  // "Hello"
+console.log(false && "Hello"); // false
+console.log(null && "Hello");  // null
+console.log(true || "Hello");  // true
+console.log(false || "Hello");  // "Hello"
+console.log(null ?? "Hello"); // "Hello" 
+console.log("first" ?? "Hello");  // "first"
+
+const short = book.hasMovieAdaptation || "This book has no movie adaptation";
+short;  // "This book has no movie adaptation"
+
+const shortCircuit = book.hasMovieAdaptation && "This book has a movie adaptation";
+shortCircuit; // "This book has a movie adaptation"
+
+
+// Nullish Coalescing Operator (??) -> usefull for 0, false, ""
+book.pages = 0;
+var bookpages = book.pages || "No pages available";
+bookpages;  // No pages available
+bookpages = book.pages ?? "No pages available";
+bookpages;  // 0
+
+
+// Optional chaining
+const rating = book.reviews.goodreads.rating;
+rating;  // 4.13
+
+book.reviews.librarything = null;
+// const ratingLibrary = book.reviews.librarything.rating;  // Connot read property 'rating' of null
+const ratingLibrary = book.reviews.librarything?.rating ?? "No rating available";
+ratingLibrary; // No rating available
+
+
+// Array methods
+// MAP
+const x = [1, 2, 3, 4].map((num) => num ** 2);
+x;  // [1, 4, 9, 16]
+
+const importantBookData = data.map((book) => {
+    const { title, author, reviews } = book;
+    const { goodreads } = reviews;
+    return { title, author, rating: goodreads.rating };
+});
+importantBookData;
+
+// FILTER
+const filteredBooks = data.filter((book) => book.pages > 500);
+filteredBooks;
+
+// REDUCE
+const totalBooks = data.reduce((acc, book) => acc + book.pages, 0);
+totalBooks;
