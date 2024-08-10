@@ -115,3 +115,21 @@ const multiply = (x, y) => x * y;
 * remove with `filter()`
 * add with `spread operator`
 * update with `map()` and `spread operator` -> `const updatedArray = array.map((item) => item.id === id ? {...item, key: value} : item)` **THE SPREAD OPERATOR IS ESSETIAL THROUGHOUT THE COURSE**
+
+
+## Async and Await and Promises
+* [JSON Placeholder](https://jsonplaceholder.typicode.com/) is a great API to test async functions
+* `fetch()` is a promise based function that returns a promise
+* A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+    * e.g. `const promise = fetch("https://jsonplaceholder.typicode.com/users")` -> returns a promise 
+    * **Pending**: Initial state, neither fulfilled nor rejected.
+    * **Fulfilled**: Meaning that the operation completed successfully.
+    * **Rejected**: Meaning that the operation failed or an error was thrown.
+* We can call the `then()` method on a promise to handle the result of the promise
+    * `promise.then((response) => response.json()).then((data) => console.log(data))` -> fetches the data and logs it to the console
+* Async and Await is a way to handle promises in a more synchronous way that means we can write async code that behaves like sync code. For example when fetching some data, we want to wait for the data to be fetched before we continue with the code.
+  * Waiting works only within the scope of an async function
+  * `async` keyword is used to define an async function
+  * `await` keyword is used to wait for a promise to resolve
+  * you have to await a async function to get the result
+  * **`async` functions always return a promise**
