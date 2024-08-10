@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Trail</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+            cursor: none;
+            position: relative;
+        }
+
+        .cursor-dot {
+            width:20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .trail {
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+
+            // Create a dot element for the cursor
+            const cursorDot = document.createElement('div');
+            cursorDot.classList.add('cursor-dot');
+            body.appendChild(cursorDot);
+
+            // Handle mouse movement with a higher frequency
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+
+                // Move the cursor dot to the current mouse position
+                cursorDot.style.left = `${mouseX - 4}px`;
+                cursorDot.style.top = `${mouseY - 4}px`;
+
+                // Create the trail dot at the current position
+                const trail = document.createElement('div');
+                trail.classList.add('trail');
+                trail.style.left = `${mouseX - 2}px`;
+                trail.style.top = `${mouseY - 2}px`;
+                body.appendChild(trail);
+
+                // Remove the trail after some time
+                setTimeout(() => {
+                    trail.remove();
+                }, 500); // Adjust this value as necessary
+            });
+        });
+    </script>
+</body>
+</html>
