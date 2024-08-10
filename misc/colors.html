@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Tiles</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .grid-container {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .tile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        .phatlogreen { background-color: #123524; }
+        .default { background-color: #333; }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="tile phatlogreen">Phtalo Green</div>
+        <div class="tile default"></div>
+        <div class="tile default"></div>
+        <div class="tile default"></div>
+        <div class="tile default"></div>
+        <div class="tile default"></div>
+        <div class="tile default"></div>
+        <div class="tile default"></div>
+        <div class="tile default"></div>
+    </div>
+</body>
+</html>
