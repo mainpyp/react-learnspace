@@ -243,5 +243,59 @@ const filteredBooks = data.filter((book) => book.pages > 500);
 filteredBooks;
 
 // REDUCE
-const totalBooks = data.reduce((acc, book) => acc + book.pages, 0);
-totalBooks;
+const product = [1, 2, 3, 4].reduce((term, number) => term * number, 1);
+product;  // 24
+
+// explanation: 
+// first iteration term = 1, number = 1 -> 1 * 1 = 1, 
+// second iteration: term = 1, number = 2 -> 1 * 2 = 2, 
+// third iteration: term = 2, number = 3 -> 2 * 3 = 6, 
+// fourth iteration: term = 6, number = 4 -> 6 * 4 = 24
+
+const allPages = data.reduce((totalPages, book) => totalPages + book.pages, 0);
+allPages; // 2932
+
+// SORT
+const unsortedArr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+const ascendingArr = unsortedArr.sort((a, b) => a - b);
+ascendingArr;
+const descendingArr = ascendingArr.slice().sort((a, b) => b - a);
+ascendingArr;  // because of slice, ascendingArr is not changed
+descendingArr;  // [9, 6, 5, 5, 5, 4, 3, 3, 2, 1, 1]
+unsortedArr; // this is actually sorted in place!!!
+
+const sortedBooksByTitle = data.slice().sort((book1, book2) => book1.title.localeCompare(book2.title));
+const sortedTitles = sortedBooksByTitle.map(x=>x.title);
+// ['A Game of Thrones', 'Dune', 'Harry Potter and the Philosopher's Stone', 'The Cyberiad', 'The Lord of the Rings']
+sortedTitles; 
+
+const comp1 = "Allo mister"
+const comp2 = "Bello mister"
+comp1.localeCompare(comp2); // -1 because A comes before B
+comp2.localeCompare(comp1); // 1 because B comes after A
+
+// Working with immutable data
+const myEvenNewerBook = {
+  id: 6,
+  title: "The Hobbit",
+  publicationDate: "1937-09-21",
+};
+// ADD A BOOK
+const againUpdatedBooks = [...data, myEvenNewerBook];
+againUpdatedBooks;
+console.log(data.length); // 5
+console.log(againUpdatedBooks.length); // 6  // data is not changed
+
+// REMOVE A BOOK
+const booksAfterRemoval = againUpdatedBooks.filter((book) => book.title !== "The Hobbit");
+booksAfterRemoval;
+
+// UPDATE A BOOK
+const updatedBooks = booksAfterRemoval.map((book) =>  
+  // !!! The Spread operator is essential throguht the whole course !!!
+  book.title.includes("Harry") ? {...book, title: "Harry Popler and the Sacknähte!"} : book
+);
+// ['The Lord of the Rings', 'The Cyberiad', 'Dune', 'A Game of Thrones', 'Harry Popler and the Sacknähte!']
+console.log(updatedBooks.map(x=>x.title));
+
+// Asynchronous JavaScript
