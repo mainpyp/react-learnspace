@@ -1,7 +1,7 @@
 ![React Logo](https://www.xpand-it.com/wp-content/uploads/2018/09/React-Logo.png)
 
 # Adrians React Learnspace
-This repository is used as a space throughout my React journey. I will mainly go through the Udemy Tutorial "[The Ultimate React Course 2024](https://www.udemy.com/course/the-ultimate-react-course/?couponCode=ACCAGE0923)" and will add further sources and notes.
+This repository is used as a space throughout my React journey. I will mainly go through the Udemy Tutorial "[The Ultimate React Course 2024](https://www.udemy.com/course/the-ultimate-react-course/?couponCode=ACCAGE0923)" by Jonas Schmedtmann and will add further sources and notes.
 
 
 ## Project Structure
