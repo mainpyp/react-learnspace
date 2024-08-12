@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -47,40 +48,71 @@ const pizzaData = [
 ];
 
 function App() {
+
   return (
     <div>
       <Header />
-      <PizzaComponent />
+      <Menu />
       <Footer />
     </div>
   );
 }
 
 function Header() {
+  const h1Style = {
+    color: "green",
+    fontSize: "6em",
+    textTransform: "uppercase",
+  };
   return (
-    <div>
-      <h1>Pizza with Attitude!</h1>
+    <header className="header">
+      <h1 style={h1Style}>Pizza with Attitude!</h1>
       <h2>- Get the best Pizza in town -</h2>
+    </header>
+  );
+}
+
+function PizzaComponent(props) {
+  return (
+    <div className="container">
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
+      <p>Price: ${props.price}</p>
+      <img src={props.imageName} alt="Pizza Salamino" />
     </div>
   );
 }
 
-function PizzaComponent() {
+function Menu() {
+  const time = new Date().toLocaleTimeString();
+  const openHours = 12;
+  const closeHours = 22;
+  const isOpen = time >= openHours && time <= closeHours;
+  console.log(
+    `Time: ${time}, isOpen: ${isOpen}, openHours: ${openHours}, closeHours: ${closeHours}`
+  );
+
   return (
-    <div>
-      <h2>Pizza Salamino</h2>
-      <p>Tomato, mozarella, and pepperoni</p>
-      <p>Price: $15</p>
-      <img src="pizzas/salamino.jpg" alt="Pizza Salamino" />
-    </div>
+    <main className="menu">
+      <h2>Check out our Menu</h2>
+      <PizzaComponent name="Pizza Spinachi" ingredients="Tomato, mozarella, and pepperoni" price="35" imageName="pizzas/salamino.jpg"/>
+      <PizzaComponent name="Pizza Slami" ingredients="Tomato, mozarella, and pepperoni" price="15" imageName="pizzas/salamino.jpg"/>
+      <PizzaComponent name="Pizza Arschwasser" ingredients="Tomato, mozarella, and pepperoni" price="15" imageName="pizzas/salamino.jpg"/>
+    </main>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">© 2021 Pizza with Attitude</footer>
   );
 }
 
 // This is just to demenstrate how to create a footer with React.createElement
 // this is not nice :D
-const Footer = () => {
-  return React.createElement("footer", null, "© 2021 Pizza with Attitude");
-};
+// const Footer = () => {
+//   return React.createElement("footer", null, "© 2021 Pizza with Attitude");
+// };
 
 // React Version 18
 const root = ReactDOM.createRoot(document.getElementById("root"));

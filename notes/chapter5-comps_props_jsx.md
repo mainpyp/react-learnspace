@@ -39,6 +39,28 @@
 * **Declarative vs. Imparative Sytnax (JSX is declarative)**
     * Declarative: What you want to happen. (Describing the UI and React takes care of the rest)
     * Imparative: How you want it to happen. (Manually manipulating the DOM)
+* To add javascript in JSX we use `{}`.
+    * e.g. `<h1>{new Date().getFullYear()}</h1>`
+* Traditional Seperation of Concerns: HTML, CSS, JS
+* But in the latest years, the three langauges were tighter and tighter coupled together -> combine it into one language.
+* React: Speraation of Concerns on a **component basis**. 
+
+## Styling Components
+* We can use all traditional CSS methods to style components.
+* We can use inline styles with the `style` attribute.
+    * However we cannot use strings but js objects.
+    * e.g. `style={{color: 'red'}}`
+    -> enter style mode with the first curly brackets and then enter the object with the second curly brackets.
+    * All tags (font-size) have been converted to **camelCase**.
+* We can use a `style.css` file and import it into the component.
+  * import it with `import './style.css'` in the component file.
+  * We dont use the `class` tag but the `className` tag.
+  * `style` overwrites the `style.css` file.
+* We can use SASS and LESS with the `node-sass` and `less` packages.
+* We even can use tailwind CSS with the `tailwindcss` package.
+* Component parameters in React are called **props**. 
+  * They are passed to the component as attributes. e.g. `<ComponentName prop1="value1" prop2="value2" />`
+  * We can access them in the component with `props.prop1` and `props.prop2`.
 
 ## Props
 
