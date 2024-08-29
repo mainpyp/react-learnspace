@@ -1,10 +1,6 @@
-Hier ist der umgestaltete Markdown-Text:
-
----
+# Review of Essential JavaScript for React
 
 ![JavaScript Logo](https://jbstechinfo.com/wp-content/uploads/2023/08/JavaScript-Symbol.png)
-
-# Review of Essential JavaScript for React
 
 - **`Quokka`**: Start on Current File via Command Palette.
 - Use **`const`** for values that don't change, **`var`** for dynamic/variable values, **`let`** is outdated.
@@ -13,7 +9,7 @@ Hier ist der umgestaltete Markdown-Text:
 
 ### Comparing Values
 
-- **`==` (Loose Equality)**: 
+- **`==` (Loose Equality)**:
   - Compares two values for equality **after** type conversion.
   - Example: `5 == '5'` is `true` because the string `'5'` is converted to the number `5`.
 
@@ -63,12 +59,12 @@ Hier ist der umgestaltete Markdown-Text:
 
 ## Rest / Spread Operators
 
-- **Rest Operator**: 
+- **Rest Operator**:
   - Add it to the last variable to include the last elements of an array as a list (see above).
 
 - **Spread Operator**:
   - Used to alter object values.
-  - Example: 
+  - Example:
     - `const newGenres = [...oldGenreArray, "new added genre"]` (spreads out the old array and adds the string).
     - `const newBook = {...book, moviePublicationDate: "2001-12-12"}` (spreads out object functions and adds a new key-value pair).
 
@@ -108,21 +104,21 @@ const multiply = (x, y) => x * y;
 
 ## Map, Filter, Reduce, and Sort
 
-- **Map**: 
+- **Map**:
   - `iterable.map((item) => item.modify)`
   - Example: `const x = [1, 2, 3, 4].map((num) => num ** 2);`
   
-- **Filter**: 
+- **Filter**:
   - Example: `iterable.filter((item) => item.contains("something"))`
   
-- **Reduce**: 
+- **Reduce**:
   - The most powerful array method in JS that reduces an array to a single value.
   - Example: `const sum = [1, 2, 3, 4].reduce((accumulator, currentValue) => accumulator + currentValue, 0);`
   - Here, the `accumulator` starts at `0` and is updated with each iteration.
 
 - **Sort**:
   - The sort method sorts the array in place and returns the sorted array. Use `slice()` to create a copy of the array before sorting.
-  - Example: 
+  - Example:
     - `iterable.sort((a, b) => a - b)` (sorts the array in ascending order).
     - `iterable.sort((a, b) => b - a)` (sorts the array in descending order).
     - `iterable.sort((a, b) => a.name.localeCompare(b.name))` (sorts the array by name).
@@ -159,7 +155,7 @@ const multiply = (x, y) => x * y;
   - **Rejected**: Operation failed or an error was thrown.
 
 - **Handling Promises**:
-  - Example: 
+  - Example:
     - `promise.then((response) => response.json()).then((data) => console.log(data))`  
       (fetches the data and logs it to the console).
 
