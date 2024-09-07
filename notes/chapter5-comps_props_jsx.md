@@ -71,4 +71,67 @@
 
 ## Props
 
+Props are basically parameters that are passed to a component.
+They are passed similar to HTML attributes.
+Example:
+
+```javascript
+function App() {
+  return <Card title="My Title" content="My Content" />;
+}
+
+function Card(props) {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+    </div>
+  )
+}
+```
+
+* we can also use decomposition of a js object to get the props we need.
+
+```javascript
+const myProps = {
+  title: 'My Title',
+  content: 'My Content'
+}
+function App() {
+  return <Card {...myProps} />;
+}
+...
+```
+
 ## JSX
+
+### The Rules of JSX
+
+1. JSX works exaclty like HTML but we can enter JavaScript mode with `{}`.
+2. In JavaScript mode we can use any JavaScript expression but no statements.
+3. JSX creates a JavaScript expression with React.createElement
+4. A JSX element can only have one root element.
+5. Every tag must be closed. (`<br>` -> `<br />`)
+6. Comments in JSX are wirtten by entering JS mode and then using `{/* */}`
+
+### Rendering Lists
+
+* We can use the `map` function to render a list of elements.
+
+1. Enter JS mode with `{}`
+2. Use the map function on the iterable (array) `iterable.map()`
+3. Use the data of each item to create a new JSX element. `iterable.map((item) => <li key={item.id}>{item.name}</li>)`
+
+```javascript
+const myList = [1, 2, 3, 4, 5];
+const myListItems = myList.map((item) => <li key={item}>{item}</li>);
+/*
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+*/
+```
