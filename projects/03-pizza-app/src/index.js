@@ -74,11 +74,13 @@ function Header() {
 
 function PizzaComponent(props) {
   return (
-    <div className="container">
-      <h3>{props.name}</h3>
-      <p>{props.ingredients}</p>
-      <p>Price: ${props.price}</p>
+    <div className="pizza">
       <img src={props.imageName} alt="Pizza Salamino" />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.soldOut ? "Sold Out" : "Price: $"+(props.price + 3)}</span>
+      </div>
     </div>
   );
 }
@@ -95,9 +97,7 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Check out our Menu</h2>
-      <PizzaComponent name="Pizza Spinachi" ingredients="Tomato, mozarella, and pepperoni" price="35" imageName="pizzas/salamino.jpg"/>
-      <PizzaComponent name="Pizza Slami" ingredients="Tomato, mozarella, and pepperoni" price="15" imageName="pizzas/salamino.jpg"/>
-      <PizzaComponent name="Pizza Arschwasser" ingredients="Tomato, mozarella, and pepperoni" price="15" imageName="pizzas/salamino.jpg"/>
+      {pizzaData.map((pizza) => <PizzaComponent key={pizza.name} name={pizza.name} ingredients={pizza.ingredients} price={pizza.price} imageName={pizza.photoName} soldOut={pizza.soldOut}/>)}
     </main>
   );
 }
