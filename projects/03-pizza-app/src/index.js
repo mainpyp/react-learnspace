@@ -48,7 +48,6 @@ const pizzaData = [
 ];
 
 function App() {
-
   return (
     <div>
       <Header />
@@ -74,37 +73,65 @@ function Header() {
 
 function PizzaComponent(props) {
   return (
-    <div className="pizza">
+    <li className="pizza">
       <img src={props.imageName} alt="Pizza Salamino" />
       <div>
         <h3>{props.name}</h3>
         <p>{props.ingredients}</p>
-        <span>{props.soldOut ? "Sold Out" : "Price: $"+(props.price + 3)}</span>
+        <span>
+          {props.soldOut ? "Sold Out" : "Price: $" + (props.price + 3)}
+        </span>
       </div>
-    </div>
+    </li>
   );
 }
 
 function Menu() {
-  const time = new Date().toLocaleTimeString();
-  const openHours = 12;
-  const closeHours = 22;
-  const isOpen = time >= openHours && time <= closeHours;
-  console.log(
-    `Time: ${time}, isOpen: ${isOpen}, openHours: ${openHours}, closeHours: ${closeHours}`
-  );
-
   return (
     <main className="menu">
       <h2>Check out our Menu</h2>
-      {pizzaData.map((pizza) => <PizzaComponent key={pizza.name} name={pizza.name} ingredients={pizza.ingredients} price={pizza.price} imageName={pizza.photoName} soldOut={pizza.soldOut}/>)}
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <PizzaComponent
+            key={pizza.name}
+            name={pizza.name}
+            ingredients={pizza.ingredients}
+            price={pizza.price}
+            imageName={pizza.photoName}
+            soldOut={pizza.soldOut}
+          />
+        ))}
+      </ul>
     </main>
   );
 }
 
 function Footer() {
+  const openHours = 12; // Opening time: 12 PM
+  const closeHours = 22; // Closing time: 10 PM
+  const currentHour = new Date().getHours();
+  const isOpen = currentHour >= openHours && currentHour < closeHours;
+  console.log(
+    `Time: ${currentHour}, isOpen: ${isOpen}, openHours: ${openHours}, closeHours: ${closeHours}`
+  );
   return (
-    <footer className="footer">© 2021 Pizza with Attitude</footer>
+    <footer className="footer">
+      {isOpen ? (
+        <div className="order">
+          <p>
+            We are currently open until {closeHours} PM! Order now and get a
+            <span style={{ color: "red" }}> 10% discount!</span>
+          </p>
+          <button className="btn">Order Now</button>
+        </div>
+      ) : (
+        <div className="order">
+          <p>We are currently closed!</p>
+          <button className="btn">Order Now</button>
+        </div>
+      )}
+      © 2021 Pizza with Attitude
+    </footer>
   );
 }
 

@@ -135,3 +135,19 @@ const myListItems = myList.map((item) => <li key={item}>{item}</li>);
   </ul>
 */
 ```
+
+### Conditional Rendering
+
+* We can use the `&&` operator to render a component conditionally.
+
+```javascript
+const myCondition = true;
+const myComponent = myCondition && <MyComponent />;
+```
+
+* We can also use the `ternary` operator to render a component conditionally.
+
+```javascript
+const myCondition = true;
+const myComponent = myCondition ? <MyComponent style={{ color: "red" }} /> : <MyComponent style={{ color: "blue" }} />;
+```

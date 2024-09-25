@@ -160,7 +160,9 @@ body {
 
 /* *************** */
 
-.footer {
+.footer p {
+  margin-top: 4.8rem;
+  text-align: center;
   font-size: 1.4rem;
 }
 
