@@ -151,3 +151,36 @@ const myComponent = myCondition && <MyComponent />;
 const myCondition = true;
 const myComponent = myCondition ? <MyComponent style={{ color: "red" }} /> : <MyComponent style={{ color: "blue" }} />;
 ```
+
+### Destucturing props
+
+* As we saw before, destructuring is a way to extract values from an object and assign them to variables.
+* e.g. `const { title, content } = myObject;` when `myObject` has the properties `title` and `content`.
+* We can use this to destructure props in a component when props contain multiple values e.g. `title` and `content`.
+* When calling a not defined prop, it will be ignored.
+
+```javascript
+function MyComponent({ title, content }) {
+  return <div>{title} {content} {notDefinedProp}</div>;
+}
+```
+
+### React Fragments
+
+* Fragments are a way to group a list of children without adding extra nodes to the DOM.
+* We can use the `<Fragment>` component or the shorthand `<>`.
+
+```javascript
+<div>Some content</div>
+<div>Some other content</div>
+```
+
+^^^ This is not valid JSX because it creates two root elements.
+Solution: Use Fragments.
+
+```javascript
+<>
+  <div>Some content</div>
+  <div>Some other content</div>
+</>
+```
