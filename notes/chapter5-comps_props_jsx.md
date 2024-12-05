@@ -169,6 +169,7 @@ function MyComponent({ title, content }) {
 
 * Fragments are a way to group a list of children without adding extra nodes to the DOM.
 * We can use the `<Fragment>` component or the shorthand `<>`.
+* This does not create a new node in the DOM but can be used to return multiple elements from a component.
 
 ```javascript
 <div>Some content</div>

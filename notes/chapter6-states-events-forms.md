@@ -2,11 +2,11 @@
 
 ## What is state and why do we need it?
 
+**React** is called React because it "reacts" to the **state changes**.
 🧠 State is the memory of the component. It holds necessary information that it needs to remember throughout the app's lifecycle. <br>
 **Examples:** Notification count, form data, loading status, content of a shopping cart, etc.
 
 **State vs. Piece of State or State Variable:** The State means the whole state of the component, while a piece of state is a single property of that state.
-
 **‼️ Updating the State triggers a re-render of the component. ‼️**
 
 **Implementation of state:**
